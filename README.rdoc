@@ -33,17 +33,65 @@ bin/rspec spec/features/categories/create_spec.rb to run the tests we created
 * Version
 ruby 2.2.3p173 (2015-08-18 revision 51636) [x86_64-darwin14]
 Rails 4.2.4
-* System dependencies
 
-* Configuration
 
-* Database creation
+System dependencies
+--------------------
 
-* Database initialization
+Configuration
+---------------
 
-* How to run the test suite
+Database creation
+-----------------
 
-* Services (job queues, cache servers, search engines, etc.)
+Database initialization
+-------------------------
 
-* Deployment instructions
+How to run the test suite
+-------------------------
+
+Services (job queues, cache servers, search engines, etc.)
+----------------------------------------------------------
+
+Deployment instructions
+-------------------------
 git push heroku master
+
+
+
+Troubleshooting
+--------------
+
+PG::DuplicateColumn: ERROR: column already exists
+
+Error:
+
+PG::DuplicateColumn: ERROR:  column of relation table_name already exists
+
+$ rake db:migrate
+== 20150710135824 AddStatusToUser: migrating =========================
+-- add_column(:users, :status, :integer)
+rake aborted!
+StandardError: An error has occurred, this and all later migrations canceled:
+
+PG::DuplicateColumn: ERROR:  column "status" of relation "users" already exists
+: ALTER TABLE "users" ADD COLUMN "status" integer/home/sachin/.rvm/gems/ruby-2.0.0-p598@demo_app/gems/activerecord-4.1.0/lib/active_record/connection_adapters/postgresql/database_statements.rb:128:in `async_exec'
+
+Solution:
+
+We need to remove existing column and then need to do migration. 
+
+1.) With ruby on rails,
+
+        Open terminal and run "rails db" command it will connect with database. Then you can drop that added columns from here.
+
+        You need to run this command for alter table:
+        ALTER TABLE users DROP COLUMN status;
+
+2.) Open postgresql console for drop column. 
+         
+         Open terminal and run "psql -U postgres" command then it will open psql console.Then you can drop that added columns from here.
+
+        You need to run this command for alter table:
+        ALTER TABLE users DROP COLUMN status;
+
