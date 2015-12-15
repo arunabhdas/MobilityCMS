@@ -1,2 +1,8 @@
-<h1>StoryStreams#index</h1>
+<h1><%= @category.title %></h1>
 <p>Find me in app/views/story_streams/index.html.erb</p>
+
+<ul class="story_streams">
+    <% @category.story_streams.each do |story_stream| %>
+    <li><%= story_stream.content %></li>
+    <% end %>
+</ul>
