@@ -4,7 +4,8 @@ Generate using
 $ rails new mobilitycms
 
 
-Generate rspec
+Generate rspec using :
+
 bin/rails generate rspec:install
 
 Add require capybara/rspec to spec_helper.rb
