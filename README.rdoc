@@ -1,10 +1,14 @@
 == mobilitycms
 
-Generate using 
+Generate using
 $ rails new mobilitycms
 
 Generate rspec
 bin/rails generate rspec:install
+
+Add require capybara/rspec to spec_helper.rb
+
+Run bundle binstubs respec-core to allow us to run rspec specifically with our rails app 
 
 * Version
 ruby 2.2.3p173 (2015-08-18 revision 51636) [x86_64-darwin14]
@@ -23,4 +27,3 @@ Rails 4.2.4
 
 * Deployment instructions
 git push heroku master
-
