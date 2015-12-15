@@ -49,7 +49,7 @@ end
 
 group :test do
     gem 'capybara', '~> 2.1.0'
-    gem 'shoulda-matchers', require: false
+    gem 'shoulda-matchers', '~> 3.0'
 end
 
 group :production do
