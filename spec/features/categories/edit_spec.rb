@@ -1,11 +1,10 @@
 require 'spec_helper'
 
 describe "Editing categories" do
-
+    category = Category.create(title: "Science", description: "Science is great for scientists")
     it "updates a category successfully with correct information" do
-        category = Category.create(title: "Science", description: "Science is great for scientists")
         visit "/categories"
-        within "category_#{category.id}" do
+        within "#category_#{category.id}" do
             click_link "Edit"
         end
 

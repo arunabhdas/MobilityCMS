@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
-  get 'story_streams/index'
+  # get 'story_streams/index'
 
-  resources :categories
+  resources :categories do
+      resources :story_streams
+  end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
