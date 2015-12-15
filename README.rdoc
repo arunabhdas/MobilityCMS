@@ -16,6 +16,8 @@ bin/rake db:migrate to run any pending migrations
 
 bin/rake db:migrate RAILS_ENV=test to run any pending migrations for test database
 
+heroku run rake db:migrate to ensure that db:migrate runs on heroku
+
 * Version
 ruby 2.2.3p173 (2015-08-18 revision 51636) [x86_64-darwin14]
 Rails 4.2.4
