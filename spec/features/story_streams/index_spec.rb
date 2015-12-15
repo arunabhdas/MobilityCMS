@@ -10,9 +10,6 @@ describe "Viewing todo items" do
         end
     end
     #---------------------------------------------------------------------------
-    before do
-    end
-    #---------------------------------------------------------------------------
     it "displays no story_streams when a category is empty" do
         # expect(page).to have_content("StoryStreams#index")
         visit_category(category)
