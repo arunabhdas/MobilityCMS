@@ -3,6 +3,8 @@
 Generate using 
 $ rails new mobilitycms
 
+Generate rspec
+bin/rails generate rspec:install
 
 * Version
 ruby 2.2.3p173 (2015-08-18 revision 51636) [x86_64-darwin14]
