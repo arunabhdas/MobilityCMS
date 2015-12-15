@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151215060659) do
+ActiveRecord::Schema.define(version: 20151215114241) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -129,6 +129,15 @@ ActiveRecord::Schema.define(version: 20151215060659) do
     t.datetime "pub_date",                  null: false
   end
 
+  create_table "story_streams", force: :cascade do |t|
+    t.integer  "category_id"
+    t.text     "content"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "story_streams", ["category_id"], name: "index_story_streams_on_category_id", using: :btree
+
   create_table "todo_lists", force: :cascade do |t|
     t.string   "title"
     t.text     "description"
@@ -153,4 +162,5 @@ ActiveRecord::Schema.define(version: 20151215060659) do
   add_foreign_key "django_admin_log", "auth_user", column: "user_id", name: "django_admin_log_user_id_52fdd58701c5f563_fk_auth_user_id"
   add_foreign_key "django_admin_log", "django_content_type", column: "content_type_id", name: "djan_content_type_id_697914295151027a_fk_django_content_type_id"
   add_foreign_key "polls_choice", "polls_question", column: "question_id", name: "polls_choice_question_id_246c99a640fbbd72_fk_polls_question_id"
+  add_foreign_key "story_streams", "categories"
 end
