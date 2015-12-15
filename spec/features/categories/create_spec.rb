@@ -37,7 +37,7 @@ describe "Creating categories" do
         click_link "New Category"
         expect(page).to have_content("New Category")
 
-        fill_in "Title", with: "Em"
+        fill_in "Title", with: ""
         fill_in "Description", with: "Empty"
         click_button "Create Category"
 
@@ -46,5 +46,23 @@ describe "Creating categories" do
 
         visit "/"
         expect(page).to_not have_content("Empty")
+    end
+
+    it "displays an error when the todo list has no description" do
+        expect(Category.count).to eq(0)
+
+        visit "/"
+        click_link "New Category"
+        expect(page).to have_content("New Category")
+
+        fill_in "Title", with: "MyTitle"
+        fill_in "Description", with: ""
+        click_button "Create Category"
+
+        expect(page).to have_content("error")
+        expect(Category.count).to eq(0)
+
+        visit "/"
+        expect(page).to_not have_content("MyTitle")
     end
 end
