@@ -33,6 +33,9 @@ bin/rspec spec/features/categories/create_spec.rb to run the tests we created
 Create model for StoryStream
 bin/rails generate model story_stream category:references content:text 
 
+Create controller for StoryStream
+bin/rails generate controller story_streams index 
+
 * Version
 ruby 2.2.3p173 (2015-08-18 revision 51636) [x86_64-darwin14]
 Rails 4.2.4
