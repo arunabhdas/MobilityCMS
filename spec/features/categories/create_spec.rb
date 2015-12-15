@@ -6,7 +6,7 @@ describe "Creating categories" do
         options[:title] ||= "My Cateogry Title"
         options[:description] ||= "My Category Description"
 
-        visit "/"
+        visit "/categories"
         click_link "New Category"
         expect(page).to have_content("New Category")
 
@@ -25,7 +25,7 @@ describe "Creating categories" do
         create_category title: ""
         expect(page).to have_content("error")
         # expect(Category.count).to eq(0)
-        visit "/"
+        visit "/categories"
         expect(page).to_not have_content("MyDescription")
     end
 
@@ -37,7 +37,7 @@ describe "Creating categories" do
         expect(page).to have_content("error")
         # expect(Category.count).to eq(0)
 
-        visit "/"
+        visit "/categories"
         expect(page).to_not have_content("Empty")
     end
     #---------------------------------------------------------------------------
@@ -48,7 +48,7 @@ describe "Creating categories" do
         expect(page).to have_content("error")
         # expect(Category.count).to eq(0)
 
-        visit "/"
+        visit "/categories"
         expect(page).to_not have_content("MyTitle")
     end
     #---------------------------------------------------------------------------
@@ -60,7 +60,7 @@ describe "Creating categories" do
         expect(page).to have_content("error")
         # expect(Category.count).to eq(0)
 
-        visit "/"
+        visit "/categories"
         expect(page).to_not have_content("Empty")
     end
 end
