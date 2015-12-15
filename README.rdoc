@@ -3,6 +3,7 @@
 Generate using
 $ rails new mobilitycms
 
+
 Generate rspec
 bin/rails generate rspec:install
 
@@ -15,6 +16,8 @@ rm -rf test directory since all of our tests will be in the spec directory
 bin/rake db:migrate to run any pending migrations
 
 bin/rake db:migrate RAILS_ENV=test to run any pending migrations for test database
+
+$ rails generate scaffold category title:string description:text
 
 heroku run rake db:migrate to ensure that db:migrate runs on heroku
 
