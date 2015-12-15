@@ -75,7 +75,7 @@ Error:
 PG::DuplicateColumn: ERROR:  column of relation table_name already exists
 
 $ rake db:migrate
-== 20150710135824 AddStatusToUser: migrating
+20150710135824 AddStatusToUser: migrating
 -- add_column(:users, :status, :integer)
 rake aborted!
 StandardError: An error has occurred, this and all later migrations canceled:
