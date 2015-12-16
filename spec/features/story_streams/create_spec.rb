@@ -17,10 +17,8 @@ describe "Viewing todo items" do
         click_button "Save"
         expect(page).to have_content("Added story_stream")
         within("ul.story_streams") do
-            expect(page).to have_content("Added story_stream")
-            within("ul.story_streams") do
-                expect(page).to have_content("Interest Rate Hike")
-            end
+            expect(page).to have_content("Interest Rate Hike")
         end
     end
+    #---------------------------------------------------------------------------
 end
