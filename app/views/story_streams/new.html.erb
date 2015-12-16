@@ -1,0 +1,6 @@
+<%= form_for [@category, @story_stream] do |form| %>
+<%= form.label :content %>
+<%= form.text_field :content %>
+
+<%= form.submit "Save" %>
+<% end %>
