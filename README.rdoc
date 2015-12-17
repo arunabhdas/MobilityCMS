@@ -67,7 +67,58 @@ Deployment instructions
 -------------------------
 git push heroku master
 
+Adding bootstrap to project
+---------------------------
 
+Follow the steps outlined in this stackoverflow thread
+http://stackoverflow.com/questions/18371318/installing-bootstrap-3-on-rails-app
+
+Steps to take:
+
+Download Bootstrap
+Direct download link Bootstrap 3.1.1
+Or got to http://getbootstrap.com/
+Copy
+
+bootstrap/dist/css/bootstrap.css
+bootstrap/dist/css/bootstrap.min.css 
+to: app/assets/stylesheets
+
+Copy
+
+bootstrap/dist/js/bootstrap.js
+bootstrap/dist/js/bootstrap.min.js 
+to: app/assets/javascripts
+
+Append to: app/assets/stylesheets/application.css
+
+*= require bootstrap
+Append to: app/assets/javascripts/application.js
+
+//= require bootstrap
+That is all. You are ready to add a new cool Bootstrap template.
+
+Why app/ instead of vendor/
+
+It is important to add the files to app/assets, so in the future you'll be able to overwrite Bootstrap styles.
+
+If later you want to add a custom.css.scss file with custom styles. You'll have something similar to this in application.css:
+
+ *= require bootstrap                                                            
+ *= require custom  
+If you placed the bootstrap files in app/assets, everything works as expected. But, if you placed them in vendor/assets, the Bootstrap files will be loaded last. Like this:
+
+<link href="/assets/custom.css?body=1" media="screen" rel="stylesheet">
+<link href="/assets/bootstrap.css?body=1" media="screen" rel="stylesheet">
+So, some of your customizations won't be used as the Bootstrap styles will override them.
+
+Reason behind this
+
+Rails will search for assets in many locations; to get a list of this locations you can do this:
+
+$ rails console
+> Rails.application.config.assets.paths
+In the output you'll see that app/assets takes precedence, thus loading it first.
 
 Troubleshooting
 --------------

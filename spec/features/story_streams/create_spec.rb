@@ -21,4 +21,25 @@ describe "Viewing todo items" do
         end
     end
     #---------------------------------------------------------------------------
+    it "displays an error with no content" do
+        visit_category(category)
+        click_link "New StoryStream"
+        fill_in "Content", with: ""
+        click_button "Save"
+        within("div.flasherror") do
+            expect(page).to have_content("There was a problem adding that story stream")
+        end
+    end
+    #---------------------------------------------------------------------------
+    it "displays an error with content less than 2 characters" do
+        visit_category(category)
+        click_link "New StoryStream"
+        fill_in "Content", with: "1"
+        click_button "Save"
+        within("div.flasherror") do
+            expect(page).to have_content("There was a problem adding that story stream")
+        end
+        expect(page).to have_content("Content is too short")
+    end
+    #---------------------------------------------------------------------------
 end
