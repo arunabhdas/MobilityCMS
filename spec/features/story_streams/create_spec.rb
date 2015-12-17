@@ -31,6 +31,7 @@ describe "Viewing todo items" do
         end
     end
     #---------------------------------------------------------------------------
+    #TODO FIXME Why is this failing
     it "displays an error with content less than 2 characters" do
         visit_category(category)
         click_link "New StoryStream"
